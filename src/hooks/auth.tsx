@@ -38,6 +38,8 @@ const AuthProvider: React.FC = ({ children }) => {
     const { token, user } = response.data;
     localStorage.setItem('@GoBarber:token', token);
     localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+
+    setData({ token, user: JSON.parse(user) });
   }, []);
 
   const signOut = useCallback(async () => {
